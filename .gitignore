@@ -1,6 +1,6 @@
 # Lab
 sum
-autograder/
+grading/__pycache__
 
 # Prerequisites
 *.d
