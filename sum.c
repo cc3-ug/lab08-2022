@@ -37,15 +37,64 @@ static int sum_unrolled(int n, int *a) {
 
 
 static int sum_vectorized(int n, int *a) {
-  // TODO: WRITE YOUR VECTORIZED CODE HERE
+
+  /*
+    Inicializar un registro de SIMD con ceros
+
+    Ciclo principal
+      A los registros SIMD les caben cuatro int
+      Obtenemos datos de memoria
+      Sumamos
+    Al terminar el ciclo, casi todo el arreglo se sumo
+    
+    Pasamos esos resultados parciales a un arreglo normal
+
+    Tenemos cuatro resultados parciales, los sumamos
+
+    Tail case
+      Si la cantidad de casillas del arreglo no es divisible dentro de 4, faltan casillas por sumar
+      Accedemos al arreglo de forma normal, ya sin SIMD
+      Sumamos
+    
+    Listo!
+  */
 
   return 0;
 }
 
 
 static int sum_vectorized_unrolled(int n, int *a) {
-  // TODO: UNROLL YOUR VECTORIZED CODE HERE
+  
+  /*
+    Inicializar un registro de SIMD con ceros
 
+    Ciclo principal
+      A los registros SIMD les caben cuatro int
+      Quiero hacer unroll de 4
+      Entonces...
+      
+      Obtenemos datos de memoria
+      Sumamos
+      Obtenemos datos de memoria
+      Sumamos
+      Obtenemos datos de memoria
+      Sumamos
+      Obtenemos datos de memoria
+      Sumamos
+    Al terminar el ciclo, casi todo el arreglo se sumo
+    
+    Pasamos esos resultados parciales a un arreglo normal
+
+    Tenemos cuatro resultados parciales, los sumamos
+
+    Tail case
+      Dependiendo de la cantidad de casillas del arreglo, quizas falten casillas por sumar
+      Accedemos al arreglo de forma normal, ya sin SIMD
+      Sumamos
+    
+    Listo!
+  */
+  
   return 0;
 }
 
