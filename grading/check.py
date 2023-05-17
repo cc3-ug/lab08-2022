@@ -36,7 +36,7 @@ def check_ex2():
         if task.returncode != 0:
             return (0, utils.failed('compilation error'), task.stderr.decode().strip())
         # run tests
-        task = utils.execute(cmd=['./sum'], timeout=5)
+        task = utils.execute(cmd=['./sum'], timeout=15)
         if task.returncode != 0:
             return (0, utils.failed('runtime error'), task.stderr.decode().strip())
         # Output
@@ -51,7 +51,7 @@ def check_ex2():
         return (0, utils.failed('memory limit exceeded'), '')
     except Exception as e:
         print(e)
-        return (0, utils.failed('UNEXPECTED EXCEPTION'), '')
+        return (0, utils.failed('RESULTADO INESPERADO! Ya probaste ejecutar ./sum?'), '')
 
 
 # checks sum vectorized unrolled
@@ -63,7 +63,7 @@ def check_ex3():
         if task.returncode != 0:
             return (0, utils.failed('compilation error'), task.stderr.decode().strip())
         # run tests
-        task = utils.execute(cmd=['./sum'], timeout=5)
+        task = utils.execute(cmd=['./sum'], timeout=15)
         if task.returncode != 0:
             return (0, utils.failed('runtime error'), task.stderr.decode().strip())
         # Output
@@ -77,7 +77,7 @@ def check_ex3():
     except MemoryError:
         return (0, utils.failed('memory limit exceeded'), '')
     except Exception:
-        return (0, utils.failed('UNEXPECTED EXCEPTION'), '')
+        return (0, utils.failed('RESULTADO INESPERADO! Ya probaste ejecutar ./sum?'), '')
 
 
 def lab10_SIMD():

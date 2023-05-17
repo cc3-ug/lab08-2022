@@ -65,7 +65,7 @@ void benchmark(int n, int *a, int(*computeSum)(int, int*), char *name) {
   if (sum == 2 * sum_naive(n, a))
     printf("%.2f microseconds\n", microseconds);
   else
-    printf("ERROR!\n");
+    printf("ERROR! la suma con SIMD no coincide con el resultado base\n");
 }
 
 
