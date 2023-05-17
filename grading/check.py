@@ -17,7 +17,7 @@ def check_ex1():
         exp = expected.get(key)
         if out is not None:
             if exp == out:
-                grade += ((100 / 3) / 3)
+                grade += (20 / 3)
             else:
                 err = err + 1
         else:
@@ -43,8 +43,8 @@ def check_ex2():
         output = task.stdout.decode().strip()
         output = list(map(lambda x: float(x.strip().split(':')[1].strip('microseconds').strip()), output.split('\n')[:-1]))
         if output[0] > output[2] and output[1] > output[2]:
-            return (100 / 3, utils.passed(), '')
-        return (100 / 3, utils.failed('speedup not achieved...'), '')
+            return (50, utils.passed(), '')
+        return (0, utils.failed('speedup not achieved...'), '')
     except subprocess.TimeoutExpired:
         return (0, utils.failed('TIMEOUT'), '')
     except MemoryError:
@@ -70,7 +70,7 @@ def check_ex3():
         output = task.stdout.decode().strip()
         output = list(map(lambda x: float(x.strip().split(':')[1].strip('microseconds').strip()), output.split('\n')))
         if output[0] > output[2] and output[1] > output[2] and output[2] > output[3]:
-            return (100 / 3, utils.passed(), '')
+            return (50, utils.passed(), '')
         return (0, utils.failed('speedup not achieved...'), '')
     except subprocess.TimeoutExpired:
         return (0, utils.failed('TIMEOUT'), '')
@@ -99,7 +99,7 @@ def lab10_SIMD():
         grade += ex2_result[0]
         grade += ex3_result[0]
         grade = round(grade)
-        grade = min(grade, 100)
+        grade = min(grade, 120)
         report = utils.report(table)
         print(report)
         if errors != '':
